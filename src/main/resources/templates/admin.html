@@ -1,0 +1,117 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/perfil.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+ 
+    <title>Login</title>
+</head>
+ 
+<body>
+ 
+    <header id="header">
+        <a href="index.html"><img src="img/logo.webp" alt="" class="logo" /></a>
+ 
+        <nav class="navbar">
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#menu">Jogos</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+         
+          </ul>  
+        </nav>
+       
+       
+      </header>
+     
+    <div class="wrapper">
+        <form action="post">
+            <h1>Login</h1>
+ 
+            <div class="input-box">
+				<input th:field="*{user}" name="user" type="text" class="input" />
+                <i class='bx bxs-user' ></i>
+            </div>
+            <div class="input-box">
+				<input th:field="*{senha}" name="senha" type="text" class="input" />
+                <i class='bx bxs-lock' ></i>
+            </div>
+            <div class="remember-forgot">
+                <label"><input type="checkbox">Lembrar senha</label>
+                    <a href="#"> <br>Esqueceu sua senha?</a>
+            </div>
+ 
+            <button type="submit" class="btn">Login</button>
+ 
+            <div class="rgister-link">
+                <p>Não tem uma conta? <a href="#">Registrar</a> </p>
+            </div>
+ 
+ 
+ 
+        </form>
+ 
+ 
+    </div>
+ 
+ 
+ 
+	
+ 
+ 
+ 
+</body>
+</html>
+ 
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/perfil.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+ 
+    <title th:text="${title}">Login</title>
+</head>
+ 
+<body>
+ 
+    <header id="header">
+        <a href="index.html"><img src="img/logo.webp" alt="" class="logo" /></a>
+        <nav class="navbar">
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#menu">Jogos</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+          </ul>  
+        </nav>
+      </header>
+     
+    <div class="wrapper">
+        <form action="/jogos/admin" method="POST">
+            <h1>Login</h1>
+ 
+            <div class="input-box">
+                <input type="text" name="user" placeholder="Seu usuario" required>
+                <i class='bx bxs-user' ></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="senha" placeholder="Sua senha..." required>
+                <i class='bx bxs-lock' ></i>
+            </div>
+   
+			<a href="/jogos/form">
+			<button type="submit" class="btn">Login</button>
+			 </a>
+        </form>
+    </div>
+</body>
+</html>

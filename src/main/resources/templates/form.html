@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>jogos</title>
+    <link rel="stylesheet" href="/form.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form th:action="@{/jogos/add}" th:object="${jogo}" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" th:field="*{id}" >
+            <a href="/jogos/">voltar</a>
+            <div>
+                <h2 th:text="${jogo.id !=null} ? 'Editar Jogo' : 'Criar novo jogo' "></h2>
+                <div class="input-box">
+                    <label>Nome Jogo:</label>
+                    <input th:field="*{nome}" name="nome" type="text" placeholder="Digite o nome..." />
+                </div>
+                <div class=input-box>
+                    <label>Genero:</label>
+                    <input th:field="*{tema}" name="tema" type="text" />
+                </div>
+                <div class=input-box>
+                     <label>Preco:</label>
+                     <input th:field="*{preco}" name="preco" type="text" />
+                </div>
+                <div class=input-box>
+                    <label>Imagem do Jogo:</label>
+                    <input type="file" name="imagem" id="imagem"  />
+                </div>
+    
+                <div>
+                    <button th:text="${jogo.id != null} ? 'Atualizar' : 'Cadastrar'" type="submit"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+	   <section class="menu_promocoes">
+	     <h1 class="heading"><span>Jogos</span></h1>
+
+	     <div class="box_container">
+	       <div th:each="jogo : ${jogos}" class="box">
+			
+			<img th:src="@{${jogo.imagem}}" alt="">
+			 <h2 th:text="${jogo.nome}">Nome do Jogo</h2> <!-- Titulo menor -->
+			 <h2 th:text="${jogo.tema}">Genero do jogo</h2> <!-- Titulo menor -->
+			 <p th:text="${jogo.preco}">Preço:</p> 
+			 <a th:href="@{/jogos/form/{id}(id=${jogo.id})}">
+			 <button class="btndell">Editar</button>
+			 </a>
+			 <a th:href="@{/jogos/delete/{id}(id=${jogo.id})}">
+			 <button class="btndell">Deletar</button>
+			 </a>
+	       </div>
+	     </div>
+	   </section>
+</body>
+</html>

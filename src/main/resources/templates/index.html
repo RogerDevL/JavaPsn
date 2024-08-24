@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br"  xmlns="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="img/logo.webp" type="image/x-icon" />
+ 
+    <title>GVR</title>
+  </head>
+  <body>
+    <header id="header">
+      <img src="img/logo.webp" alt="" class="logo" />
+ 
+      <nav class="navbar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Jogos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+	
+    </header>
+ 
+<div class="container-sl">
+    <div class="slider">
+      <div class="slides">
+        <input type="radio" name="radio-btn" id="radio1" />
+        <input type="radio" name="radio-btn" id="radio2" />
+        <input type="radio" name="radio-btn" id="radio3" />
+        <input type="radio" name="radio-btn" id="radio4" />
+ 
+        <div class="slide first">
+          <img src="img/GOW.jpg" />
+        </div>
+ 
+        <div class="slide">
+          <img src="img/the lest.avif" />
+        </div>
+ 
+        <div class="slide">
+          <img src="img/gta6.jpg" />
+        </div>
+ 
+        <div class="slide">
+          <img src="img/cod.webp" />
+        </div>
+ 
+        <div class="navigation-auto">
+          <div class="auto-btn1"></div>
+          <div class="auto-btn2"></div>
+          <div class="auto-btn3"></div>
+          <div class="auto-btn4"></div>
+        </div>
+      </div>
+ 
+   
+      <div class="manual-navigation">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+      </div>
+    </div>
+  </div>
+ 
+ 
+    <a name="menu"></a>
+    <section class="menu_promocoes">
+      <h1 class="heading"><span>Jogos</span></h1>
+ 
+      <div class="box_container">
+        <div th:each="jogo : ${jogos}" class="box">
+			
+			<img th:src="@{${jogo.imagem}}" alt="">
+			 <h2 th:text="${jogo.nome}">Nome do Jogo</h2> <!-- Titulo menor -->
+			 <h2 th:text="${jogo.tema}">Genero do jogo</h2> <!-- Titulo menor -->
+			 <p th:text="${jogo.preco}">Preço:</p> 
+        </div>
+      </div>
+    </section>
+ 
+    <a name="contato"></a>
+    <section class="contato" id="conteudo">
+      <h1 class="heading"><span>Entre em contato</span></h1>
+ 
+      <div class="row">
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20680.76334229841!2d-46.67389568157524!3d-23.608743803449347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5b98969e434b%3A0xa9f881d9526326ba!2zU3VmZ2FuZ8Ku!5e0!3m2!1spt-BR!2sbr!4v1709993442448!5m2!1spt-BR!2sbr"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+ 
+        <form action="">
+          <h3>fazer uma reserva</h3>
+          <div class="inputBox">
+            <input type="text" placeholder="nome" />
+          </div>
+          <div class="inputBox">
+            <input type="email" placeholder="exemplo@exemplo.com" />
+          </div>
+          <div class="inputBox">
+            <input type="text" placeholder="11 97070-7070" />
+          </div>
+          <input type="submit" value="enviar" class="btn" />
+        </form>
+      </div>
+    </section>
+ 
+    <section class="footer">
+      <div class="redes">
+        <a class="facebook"
+          ><img src="img/facebook.png" width="26px" alt=""
+        /></a>
+        <a class="instagram"
+          ><img src="img/instagram.png" width="26px" alt=""
+        /></a>
+        <a class="twitter"><img src="img/twitter.png" width="26px" alt="" /></a>
+        <a class="linkedin"
+          ><img src="img/linkedin.png" width="26px" alt=""
+        /></a>
+        <a class="pinterest"
+          ><img src="img/pinterest.png" width="26 px" alt=""
+        /></a>
+      </div>
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#menu">Jogos</a>
+        <a href="#contato">Contato</a>
+		<a href="/jogos/login">
+		 <img src="img/perfil-de-usuario.png" alt="" class="perfil"
+		 /></a>
+      </div>
+      <div class="credit"><b></b></div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
